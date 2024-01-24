@@ -9,13 +9,13 @@
 }
 .button.button--primary {
   color: #fff;
-  background-color: #2F72DE;
   border: none;
-  border-bottom: 5px solid #21509B;
+  background-color: #00897b;
+  border-bottom: 5px solid #00695c;
 }
 .button.button--secondary {
   background-color: transparent;
-  color: #213547;
+  color: #00695c;
 }
 .button.button--fullwidth {
   width: 100%;

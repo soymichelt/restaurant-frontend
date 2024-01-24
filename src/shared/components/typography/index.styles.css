@@ -51,11 +51,7 @@ h5.typography {
 }
 
 .typography.typography--primary-color {
-  color: #172b4d;
-}
-
-.typography.typography--primary-color {
-  color: rgb(103, 58, 183);
+  color: rgb(0, 150, 136);
 }
 
 .typography.typography--gray-color {
