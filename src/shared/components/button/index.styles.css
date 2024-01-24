@@ -1,0 +1,42 @@
+.button {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding-inline: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-bottom-color, background-color, color .5s ease;
+}
+.button.button--primary {
+  color: #fff;
+  background-color: #2F72DE;
+  border: none;
+  border-bottom: 5px solid #21509B;
+}
+.button.button--secondary {
+  background-color: transparent;
+  color: #213547;
+}
+.button.button--fullwidth {
+  width: 100%;
+  flex: 1;
+}
+
+.button.button--primary.button--disabled {
+  border-bottom-color: rgba(0, 0, 0, 0.12);
+}
+.button.button--disabled {
+  background-color: rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.26);
+}
+
+/* themes */
+@media (prefers-color-scheme: dark) {
+  .button.button--primary.button--disabled {
+    border-bottom-color: rgba(0, 0, 0, 0.12);
+  }
+  .button.button--disabled {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
