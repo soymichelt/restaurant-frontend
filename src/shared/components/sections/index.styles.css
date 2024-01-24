@@ -1,0 +1,22 @@
+.sections {
+  height: 100%;
+  width: 100%;
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(270px, 1fr));
+  grid-template-rows: 100%;
+  column-gap: 24px;
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.loader {
+  position: absolute;
+  margin: 0 auto;
+  margin-top: 1.675rem;
+  z-index: 9;
+}
+
+.loader img {
+  width: 64px;
+}
