@@ -1,0 +1,16 @@
+.panel {
+  padding: 1.625rem;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  background-color: #fff;
+  overflow: hidden;
+  border: 0px solid rgba(0, 0, 0, 0.125);
+  box-shadow: rgba(145, 158, 171, 0.2) 0px 0px 2px 0px, rgba(145, 158, 171, 0.12) 0px 12px 24px -4px;
+}
+
+/* themes */
+@media (prefers-color-scheme: dark) {
+  .panel {
+    background-color: rgb(18, 23, 47);
+  }
+}
