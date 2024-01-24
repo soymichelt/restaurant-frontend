@@ -1,13 +1,32 @@
-type HomeProps = {
-  className?: string;
-};
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useNavigate } from 'react-router-dom';
+import { GlobalState } from '../shared/states/global';
+import { useContext, useEffect } from 'react';
+import { HeaderContainer } from '../elements/headers/containers';
+import { Page } from '../shared/components/page';
+import { IsAuthenticated } from '../elements/isAuthenticated/components';
+import { Typography } from '../shared/components/typography';
 
-export const Home = (props: HomeProps) => {
-  const { className } = props;
+export const Home = () => {
+  const navigate = useNavigate();
+  const { auth } = useContext(GlobalState);
+
+  useEffect(() => {
+    if (!auth.isLogged) {
+      navigate('/signin');
+    }
+  }, [auth.isLogged]);
 
   return (
-    <h1 className={`page-home ${className}`}>
-      Home
-    </h1>
+    <>
+      <HeaderContainer />
+      <Page>
+        <IsAuthenticated>
+          <Typography component='h4' className='mt-0 mb-4'>
+            Orders Board
+          </Typography>
+        </IsAuthenticated>
+      </Page>
+    </>
   );
 };

@@ -67,7 +67,7 @@
 
 @media (prefers-color-scheme: dark) {
   .list__section {
-    background-color: rgb(3, 6, 20);
+    background-color: rgb(6, 13, 18);
   }
   .list__header {
     color: rgb(96, 109, 136);
