@@ -1,0 +1,27 @@
+.logo {
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  color: #172b4d;
+  cursor: pointer;
+}
+.logo span {
+  font-weight: 300;
+}
+
+.logo.logo--sm {
+  font-size: 1rem;
+}
+.logo.logo--md {
+  font-size: 1.2rem;
+}
+.logo.logo--lg {
+  font-size: 1.625rem;
+}
+
+/* themes */
+@media (prefers-color-scheme: dark) {
+  .logo {
+    color: #fff;
+  }
+}
