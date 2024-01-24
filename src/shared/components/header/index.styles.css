@@ -64,11 +64,11 @@
   font-size: 13px;
   font-weight: 600;
   text-transform: uppercase;
-  background-color: #2F72DE;
+  border: none;
+  background-color: #00897b;
+  border-bottom: 5px solid #00695c;
   padding-inline: 12px;
   border-radius: 4px;
-  border: none;
-  border-bottom: 5px solid #21509B;
   cursor: pointer;
 }
 
@@ -178,7 +178,7 @@
 /* themes */
 @media (prefers-color-scheme: dark) {
   .header {
-    background-color: rgb(3, 6, 20);
+    background-color: rgb(6, 13, 18);
   }
   .header h2 a {
     color: #fff;
@@ -188,7 +188,7 @@
   }
 
   .sidebar {
-    background-color: rgb(3, 6, 20);
+    background-color: rgb(6, 13, 18);
   }
   .sidebar nav ul li a,
   .sidebar nav ul li button {

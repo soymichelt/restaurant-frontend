@@ -26,14 +26,14 @@ export const Header = (props: HeaderProps) => {
     <>
       <header className={'header'}>
         <h2>
-          <Link to={'/'}>Soymichel <span>Kitchen</span></Link>
+          <Link to={'/'}>Kitchen <span>App</span></Link>
         </h2>
 
         <nav>
           {isLogged ? (
             <>
               <button className='btn-primary' onClick={onCreate}>
-                Crear Tarea
+                Ordenar Comida
               </button>
               <button
                 className='menu-item menu-item--short-menu'
