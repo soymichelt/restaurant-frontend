@@ -1,0 +1,65 @@
+.select-field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.select-field label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.select-field select {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #172b4d;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 1rem;
+  border: 1px solid rgba(0, 0, 0, .1);
+  transition: border .5s ease;
+  outline: none;
+  background-color: transparent;
+}
+
+.select-field select:hover,
+.select-field select:focus
+{
+  border: 1px solid rgba(23, 43, 77, .7);
+}
+
+.select-field.select-field--disabled select {
+  background-color: #f0f0f0;
+}
+
+.select-field.select-field--error select {
+  border-color: rgb(211, 47, 47);
+}
+.select-field .select-field__error {
+  display: inline-block;
+  position: absolute;
+  bottom: -14px;
+  color: rgb(211, 47, 47);
+  font-size: .625rem;
+  z-index: 999;
+}
+
+/* themes */
+@media (prefers-color-scheme: dark) {
+  .select-field label {
+    color: rgb(96, 109, 136);
+  }
+
+  .select-field select {
+    background-color: rgb(10, 15, 35);
+    color: rgb(213, 217, 233);
+  }
+
+  .select-field.select-field--disabled select {
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+}
