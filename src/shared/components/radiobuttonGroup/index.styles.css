@@ -1,0 +1,43 @@
+.radiobutton-group {
+  appearance: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.radiobutton-group.radiobutton-group--vertical {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.radiobutton-group .radiobutton-group__title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.radiobutton-group.radiobutton-group--vertical .radiobutton-group__title {
+  margin: 0;
+}
+
+/* mobile */
+@media screen and (max-width: 530px) {
+  .radiobutton-group.radiobutton-group--vertical {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+/* themes */
+@media (prefers-color-scheme: dark) {
+  .radiobutton-group .radiobutton-group__title {
+    color: rgb(96, 109, 136);
+  }
+}
