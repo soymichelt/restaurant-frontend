@@ -13,7 +13,7 @@ export const Logo = (props: LogoProps) => {
 
   return (
     <h2 className={`logo ${className} logo--${size}`}>
-      Soymichel <span>Kitchen</span>
+      Kitchen <span>App</span>
     </h2>
   );
 };

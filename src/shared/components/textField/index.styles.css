@@ -55,11 +55,11 @@
 /* themes */
 @media (prefers-color-scheme: dark) {
   .text-field label {
-    color: rgb(96, 109, 136);
+    color: rgb(216, 221, 240);
   }
 
   .text-field input, .text-field textarea {
-    background-color: rgb(10, 15, 35);
+    background-color: rgb(14, 27, 35);
     color: rgb(213, 217, 233);
   }
 
