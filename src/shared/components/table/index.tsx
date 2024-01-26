@@ -17,11 +17,10 @@ export type TableProps = {
   keySelected?: string;
   onSelect?: (key: string) => void;
   collapse?: boolean;
-  collapseDataKey?: string;
   columns: Record<string, any>[];
   rows: Record<string, any>[];
   onSearch?: React.ChangeEventHandler<HTMLInputElement>;
-  renderCollapse?: (collapseData: Record<string, any>[]) => ReactElement;
+  renderCollapse?: (row: Record<string, any>) => ReactElement;
   hideHeader?: boolean;
 };
 
@@ -34,7 +33,6 @@ export const Table = (props: TableProps) => {
     keySelected = '',
     onSelect = () => {},
     collapse = false,
-    collapseDataKey = '',
     columns,
     rows,
     onSearch,
@@ -113,7 +111,9 @@ export const Table = (props: TableProps) => {
                   {collapse && (
                     <tr className={`collapse-section ${keySelected === row[keyField] ? 'collapse--selected' : ''}`}>
                       <td colSpan={colSpan + 1}>
-                        {renderCollapse && (renderCollapse(row[collapseDataKey]))}
+                        {(renderCollapse && keySelected === row[keyField]) && (
+                          renderCollapse(row)
+                        )}
                       </td>
                     </tr>
                   )}

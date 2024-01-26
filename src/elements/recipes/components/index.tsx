@@ -2,7 +2,7 @@
 import { Table } from '../../../shared/components/table';
 
 export type RecipesProps = {
-  className?: '';
+  className?: string;
   columns: Record<string, any>[];
   rows: Record<string, any>[];
   recipeSelected?: string;
@@ -28,11 +28,10 @@ export const Recipes = (props: RecipesProps) => {
       keySelected={recipeSelected}
       onSelect={onRecipeSelected}
       collapse={true}
-      collapseDataKey={'ingredients'}
       columns={columns}
       rows={rows}
       onSearch={onSearch}
-      renderCollapse={(ingredients: Record<string, any>[]) => {
+      renderCollapse={(row: Record<string, any>) => {
         return (
           <Table
             hideHeader
@@ -54,7 +53,7 @@ export const Recipes = (props: RecipesProps) => {
                 align: 'center',
               },
             ]}
-            rows={ingredients}
+            rows={row.ingredients}
           />
         );
       }}
