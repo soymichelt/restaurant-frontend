@@ -1,13 +1,14 @@
-type Page404 = {
-  className?: string;
-};
+import { Page } from '../shared/components/page';
+import { NotFound404 } from '../shared/components/404';
+import { HeaderContainer } from '../elements/headers/containers';
 
-export const Page404 = (props: Page404) => {
-  const { className } = props;
-
+export const Page404 = () => {
   return (
-    <h1 className={`page-404 ${className}`}>
-      404
-    </h1>
+    <>
+      <HeaderContainer />
+      <Page center>
+        <NotFound404 />
+      </Page>
+    </>
   );
 };
