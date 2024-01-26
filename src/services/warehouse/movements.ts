@@ -26,7 +26,14 @@ export const all = async (ingredientId: string): Promise<MovementModel[]> => {
       redirect: 'follow',
     })
       .then(res => res.text())
-      .then(data => resolve(JSON.parse(data)))
+      .then(data => {
+        const dataParsed = JSON.parse(data);
+        if (dataParsed.errorCode) {
+          reject(new Error(dataParsed.message));
+        }
+
+        resolve(dataParsed);
+      })
       .catch(error => reject(error));
   });
 
