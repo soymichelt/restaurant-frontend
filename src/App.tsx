@@ -43,6 +43,12 @@ const App = () => {
         setNotification(undefined);
       }, 5000);
     }
+
+    return () => {
+      if (notificationTimeoutRef.current) {
+        clearTimeout(notificationTimeoutRef.current);
+      }
+    };
   }, [notification?.message]);
 
   return (

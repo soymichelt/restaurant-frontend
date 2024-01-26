@@ -41,8 +41,8 @@
   align-items: center;
   height: 24px;
   line-height: 1;
-  color: rgb(47, 114, 222);
-  background-color: rgb(47, 114, 222, .1);
+  color: rgb(0, 150, 136);
+  background-color: rgb(14, 27, 35);
   box-sizing: border-box;
   margin-left: .5rem;
 }

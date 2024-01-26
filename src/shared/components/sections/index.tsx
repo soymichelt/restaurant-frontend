@@ -35,6 +35,7 @@ export const Sections = (props: SectionsProps) => {
             <Droppable
               key={section.sectionId}
               droppableId={section.sectionId}
+              isDropDisabled={section.disableToReceive}
             >
               {(provided) => (
                   <List
@@ -47,6 +48,7 @@ export const Sections = (props: SectionsProps) => {
                       onEdit={onEdit}
                       completeId={completeId}
                       provided={provided}
+                      isDragDisable={section.disableToDeliver}
                   />
               )}
             </Droppable>

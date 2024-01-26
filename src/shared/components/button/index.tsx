@@ -2,7 +2,7 @@ import './index.styles.css';
 
 export type ButtonProps = {
   className?: string;
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'outline';
   fullwidth?: boolean;
   children: string | number | React.ReactElement | Array<React.ReactElement>;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
