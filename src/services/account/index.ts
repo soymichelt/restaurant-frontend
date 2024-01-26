@@ -28,7 +28,14 @@ export const all = async (): Promise<UserModel[]> => {
       redirect: 'follow',
     })
       .then(res => res.text())
-      .then(data => resolve(JSON.parse(data)))
+      .then(data => {
+        const dataParsed = JSON.parse(data);
+        if (dataParsed.errorCode) {
+          reject(new Error(dataParsed.message));
+        }
+
+        resolve(dataParsed);
+      })
       .catch(error => reject(error));
   });
 
@@ -51,6 +58,10 @@ export const signin = async (username: string, password: string): Promise<UserAu
       .then((res) => res.text())
       .then((data) => {
         const dataParsed = JSON.parse(data);
+        if (dataParsed.errorCode) {
+          reject(new Error(dataParsed.message));
+        }
+
         const userPayload = jwtDecode(dataParsed.token) as UserModel;
         const result = { ...dataParsed, ...userPayload };
         saveAuthData(result);
@@ -75,6 +86,10 @@ export const signup = async (user: Omit<UserModel, 'userId' | 'createdAt' | 'upd
       .then((res) => res.text())
       .then((data) => {
         const dataParsed = JSON.parse(data);
+        if (dataParsed.errorCode) {
+          reject(new Error(dataParsed.message));
+        }
+
         const userPayload = jwtDecode(dataParsed.token) as UserModel;
         const result = { ...dataParsed, ...userPayload };
         saveAuthData(result);

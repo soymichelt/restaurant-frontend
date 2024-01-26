@@ -26,7 +26,14 @@ export const all = async (): Promise<OrderModel[]> => {
       redirect: 'follow',
     })
       .then(res => res.text())
-      .then(data => resolve(JSON.parse(data)))
+      .then(data => {
+        const dataParsed = JSON.parse(data);
+        if (dataParsed.errorCode) {
+          reject(new Error(dataParsed.message));
+        }
+
+        resolve(dataParsed);
+      })
       .catch(error => reject(error));
   });
 
@@ -44,7 +51,14 @@ export const create = async(): Promise<OrderModel> => {
       redirect: 'follow',
     })
       .then((res) => res.text())
-      .then((data) => resolve(JSON.parse(data)))
+      .then(data => {
+        const dataParsed = JSON.parse(data);
+        if (dataParsed.errorCode) {
+          reject(new Error(dataParsed.message));
+        }
+
+        resolve(dataParsed);
+      })
       .catch((error) => reject(error));
   });
 
@@ -62,7 +76,14 @@ export const moveOrderToNextState = async(orderId: string): Promise<OrderModel> 
       redirect: 'follow',
     })
       .then((res) => res.text())
-      .then((data) => resolve(JSON.parse(data)))
+      .then(data => {
+        const dataParsed = JSON.parse(data);
+        if (dataParsed.errorCode) {
+          reject(new Error(dataParsed.message));
+        }
+
+        resolve(dataParsed);
+      })
       .catch((error) => reject(error));
   });
 
@@ -83,7 +104,14 @@ export const updateOrderState = async(orderId: string, newState: string): Promis
       }),
     })
       .then((res) => res.text())
-      .then((data) => resolve(JSON.parse(data)))
+      .then(data => {
+        const dataParsed = JSON.parse(data);
+        if (dataParsed.errorCode) {
+          reject(new Error(dataParsed.message));
+        }
+
+        resolve(dataParsed);
+      })
       .catch((error) => reject(error));
   });
 

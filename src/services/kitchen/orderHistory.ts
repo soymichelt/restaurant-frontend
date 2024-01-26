@@ -1,19 +1,20 @@
 import { API_URL, API_HOST_HEADER, getAuthHeader } from './../config';
 
-const INGREDIENTS_API_URL = `${API_URL}/warehouse/ingredients`;
+const ORDERS_HISTORY_API_URL = `${API_URL}/kitchen/orders`;
 
-export type IngredientModel = {
-  ingredientId: string;
-  name: string;
-  stock: number;
-  
+export type OrderHistoryModel = {
+  orderHistoryId: string;
+  orderId: string;
+  state: string;
+  prevState: string;
+
   createdAt: string;
   updatedAt: string;
 };
 
-export const all = async (): Promise<IngredientModel[]> => {
-  const fn = new Promise<IngredientModel[]>((resolve, reject) => {
-    fetch(INGREDIENTS_API_URL, {
+export const all = async (orderId: string): Promise<OrderHistoryModel[]> => {
+  const fn = new Promise<OrderHistoryModel[]>((resolve, reject) => {
+    fetch(`${ORDERS_HISTORY_API_URL}/${orderId}/history`, {
       method: 'GET',
       headers: {
         'Host': API_HOST_HEADER,
