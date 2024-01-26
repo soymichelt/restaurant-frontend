@@ -32,6 +32,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid rgb(6, 13, 18);
 }
 
 .modal .modal__header h2 {
@@ -43,6 +44,10 @@
 .modal .modal__body {
   overflow-y: auto;
   border-block: 1px solid rgba(23, 43, 77, .1);
+}
+.modal .modal__body p {
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .modal .modal__footer {

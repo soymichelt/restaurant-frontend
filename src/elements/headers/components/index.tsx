@@ -1,4 +1,5 @@
 import { Header as HeaderComponent } from '../../../shared/components/header';
+import { OrderCreateContainer } from '../../ordersCreate/containers';
 
 export type HeaderProps = {
   isLogged?: boolean;
@@ -29,6 +30,8 @@ export const Header = (props: HeaderProps) => {
         onOpenSidebar={onOpenSidebar}
         onCloseSidebar={onCloseSidebar}
       />
+
+      <OrderCreateContainer />
     </>
   );
 };
