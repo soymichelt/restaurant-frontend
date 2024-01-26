@@ -6,6 +6,7 @@ import { GlobalState } from '../shared/states/global';
 import { Typography } from '../shared/components/typography';
 import { IsAuthenticated } from '../elements/isAuthenticated/components';
 import { HeaderContainer } from '../elements/headers/containers';
+import { OrdersListContainer } from '../elements/ordersList/containers';
 
 export const Orders = () => {
   const navigate = useNavigate();
@@ -25,6 +26,8 @@ export const Orders = () => {
           <Typography component='h4' className='mt-0 mb-4'>
             Órdenes de Comida
           </Typography>
+
+          <OrdersListContainer />
         </IsAuthenticated>
       </Page>
     </>
