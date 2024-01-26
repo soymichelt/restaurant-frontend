@@ -42,7 +42,7 @@
   height: 24px;
   line-height: 1;
   color: rgb(0, 150, 136);
-  background-color: rgb(14, 27, 35);
+  background-color: rgb(224, 242, 241);
   box-sizing: border-box;
   margin-left: .5rem;
 }
@@ -71,5 +71,8 @@
   }
   .list__header {
     color: rgb(96, 109, 136);
+  }
+  .list__header-badge {
+    background-color: rgb(14, 27, 35);
   }
 }

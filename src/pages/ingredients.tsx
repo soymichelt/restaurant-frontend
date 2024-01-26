@@ -7,7 +7,7 @@ import { Typography } from '../shared/components/typography';
 import { IsAuthenticated } from '../elements/isAuthenticated/components';
 import { HeaderContainer } from '../elements/headers/containers';
 
-export const Profile = () => {
+export const Ingredients = () => {
   const navigate = useNavigate();
   const { auth } = useContext(GlobalState);
 
@@ -23,7 +23,7 @@ export const Profile = () => {
       <Page>
         <IsAuthenticated>
           <Typography component='h4' className='mt-0 mb-4'>
-            Personal Profile
+            Ingredientes Disponibles
           </Typography>
         </IsAuthenticated>
       </Page>

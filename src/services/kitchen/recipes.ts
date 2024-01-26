@@ -11,6 +11,8 @@ export type RecipeModel = {
     ingredientId: string;
     quantity: number;
   }[];
+  createdAt: string;
+  updatedAt: string;
 };
 
 export const all = async (): Promise<RecipeModel[]> => {

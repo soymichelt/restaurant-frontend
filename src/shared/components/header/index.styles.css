@@ -4,7 +4,7 @@
   z-index: 1;
   background-color: #fff;
   padding: 0px 1.625rem;
-  min-height: 64px;
+  min-height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -160,13 +160,13 @@
 }
 
 /* tablet */
-@media screen and (min-width: 513px) and (max-width: 768px) {
+@media screen and (min-width: 513px) and (max-width: 1000px) {
   .header nav .menu-item.menu-item--large {
     display: none;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1000px) {
   .header nav .menu-item.menu-item--large {
     display: flex;
   }

@@ -42,6 +42,15 @@ export const Header = (props: HeaderProps) => {
                 <MenuIcon />
               </button>
 
+              <Link className='menu-item menu-item--large' to={'/catalogue'}>
+                Catálogo
+              </Link>
+              <Link className='menu-item menu-item--large' to={'/ingredients'}>
+                Ingredientes
+              </Link>
+              <Link className='menu-item menu-item--large' to={'/orders'}>
+                Ordenes
+              </Link>
               <Link className='menu-item menu-item--large' to={'/profile'}>
                 My Account
               </Link>
@@ -76,7 +85,31 @@ export const Header = (props: HeaderProps) => {
             <Logo size='sm' />
           </Link>
         </header>
-        <nav>
+        <nav className='nav-menu'>
+          <ul>
+            <li>
+              <Link to='/'>
+                Inicio
+              </Link>
+            </li>
+            <li>
+              <Link to='/catalogue'>
+                Catálogo
+              </Link>
+            </li>
+            <li>
+              <Link to='/ingredients'>
+                Ingredientes
+              </Link>
+            </li>
+            <li>
+              <Link to='/orders'>
+                Órdenes
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <nav className='nav-account'>
           <ul>
             <li>
               <Link to='/profile'>

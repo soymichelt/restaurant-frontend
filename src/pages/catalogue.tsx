@@ -6,8 +6,9 @@ import { GlobalState } from '../shared/states/global';
 import { Typography } from '../shared/components/typography';
 import { IsAuthenticated } from '../elements/isAuthenticated/components';
 import { HeaderContainer } from '../elements/headers/containers';
+import { RecipesContainer } from '../elements/recipes/containers';
 
-export const Profile = () => {
+export const Catalogue = () => {
   const navigate = useNavigate();
   const { auth } = useContext(GlobalState);
 
@@ -23,8 +24,10 @@ export const Profile = () => {
       <Page>
         <IsAuthenticated>
           <Typography component='h4' className='mt-0 mb-4'>
-            Personal Profile
+            Restaurante
           </Typography>
+
+          <RecipesContainer />
         </IsAuthenticated>
       </Page>
     </>

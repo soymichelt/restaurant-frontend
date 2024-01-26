@@ -1,7 +1,8 @@
+import { ReactElement } from 'react';
 import './index.styles.css';
 
 export type TextFieldProps = {
-  label: string;
+  label?: string;
   placeholder?: string;
   value?: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement> | React.ChangeEventHandler<HTMLTextAreaElement>;
@@ -10,6 +11,8 @@ export type TextFieldProps = {
   disabled?: boolean;
   error?: boolean;
   errorMessage?: string;
+  rounded?: boolean;
+  icon?: ReactElement;
 };
 
 export const TextField = (props: TextFieldProps) => {
@@ -23,27 +26,35 @@ export const TextField = (props: TextFieldProps) => {
     disabled = false,
     error = false,
     errorMessage,
+    rounded = false,
+    icon,
   } = props;
 
   return (
-    <div className={`text-field ${disabled ? 'text-field--disabled' : ''} ${error || errorMessage ? 'text-field--error' : ''}`}>
-      <label>{label}</label>
-      {component === 'input' ? (
-        <input
-          type={type}
-          placeholder={placeholder ?? label}
-          onChange={onChange as React.ChangeEventHandler<HTMLInputElement>}
-          value={value}
-          disabled={disabled}
-        />
-      ) : (
-        <textarea
-          placeholder={placeholder ?? label}
-          onChange={onChange as React.ChangeEventHandler<HTMLTextAreaElement>}
-          value={value}
-          disabled={disabled}
-        ></textarea>
+    <div className={`text-field ${disabled ? 'text-field--disabled' : ''} ${error || errorMessage ? 'text-field--error' : ''} ${rounded ? 'text-field--rounded' : ''}`}>
+      {label && (
+        <label>{label}</label>
       )}
+
+      <div className={`text-field__container ${icon ? 'text-field__container--icon' : ''}`}>
+        {icon}
+        {component === 'input' ? (
+          <input
+            type={type}
+            placeholder={placeholder ?? label}
+            onChange={onChange as React.ChangeEventHandler<HTMLInputElement>}
+            value={value}
+            disabled={disabled}
+          />
+        ) : (
+          <textarea
+            placeholder={placeholder ?? label}
+            onChange={onChange as React.ChangeEventHandler<HTMLTextAreaElement>}
+            value={value}
+            disabled={disabled}
+          ></textarea>
+        )}
+      </div>
 
       {error || errorMessage && (
         <span className='text-field__error'>

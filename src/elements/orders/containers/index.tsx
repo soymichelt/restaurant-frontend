@@ -31,11 +31,10 @@ export const OrdersContainer = () => {
     }
   }, [refreshingOrders]);
 
-  const { data } = state || [];
+  const { data } = state || {};
 
   const [completeId, setCompleteId] = useState<string | null>();
   const handleComplete = (itemId: string) => {
-    console.log('Completing >>> ', itemId);
     setCompleteId(itemId);
     moveOrderToNextState(itemId)
       .then(() => ordersAction.loading())

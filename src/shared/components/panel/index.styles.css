@@ -8,6 +8,13 @@
   box-shadow: rgba(145, 158, 171, 0.2) 0px 0px 2px 0px, rgba(145, 158, 171, 0.12) 0px 12px 24px -4px;
 }
 
+.panel.panel-size--full {
+  box-shadow: none;
+  border-radius: 8px;
+  flex: 1;
+  min-width: 100%;
+}
+
 /* themes */
 @media (prefers-color-scheme: dark) {
   .panel {
