@@ -1,8 +1,11 @@
 export type ItemType = {
   itemId: string;
-  itemState: number;
+  itemHeader: string;
+  itemState: string;
   itemDescription: string;
-  itemCreator: string;
   itemCreatorId: string;
   itemPriority?: string;
+
+  createdAt: string;
+  updatedAt: string;
 };

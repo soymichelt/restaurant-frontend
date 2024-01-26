@@ -1,4 +1,5 @@
 .button {
+  max-height: 38px;
   font-size: 13px;
   font-weight: 600;
   text-transform: uppercase;
@@ -17,6 +18,11 @@
   background-color: transparent;
   color: #00695c;
 }
+.button.button--outline {
+  background-color: transparent;
+  border-color: #00897b;
+  color: #00695c;
+}
 .button.button--fullwidth {
   width: 100%;
   flex: 1;
@@ -32,6 +38,12 @@
 
 /* themes */
 @media (prefers-color-scheme: dark) {
+  .button.button--outline {
+    background-color: transparent;
+    border-color: #00897b;
+    color: #e0f2f1;
+  }
+
   .button.button--primary.button--disabled {
     border-bottom-color: rgba(0, 0, 0, 0.12);
   }

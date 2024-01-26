@@ -11,6 +11,7 @@ type ListProps = {
   completeId?: string | null;
   provided: DroppableProvided;
   sectionName: string;
+  isDragDisable?: boolean;
 };
 
 export const List = (props: ListProps) => {
@@ -22,6 +23,7 @@ export const List = (props: ListProps) => {
     completeId,
     provided,
     sectionName,
+    isDragDisable = false,
   } = props;
 
   return (
@@ -44,6 +46,7 @@ export const List = (props: ListProps) => {
                 key={item.itemId}
                 draggableId={item.itemId}
                 index={index}
+                isDragDisabled={isDragDisable}
               >
                 {(providedDrag) => (
                   <Item
