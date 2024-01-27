@@ -5,8 +5,12 @@ import { formatDistance } from 'date-fns';
 import { IngredientModel, all } from '../../../services/warehouse/ingredients';
 import { debounce } from '../../../shared/utils/debounce';
 import { Ingredients } from '../components';
+import { IconButton } from '../../../shared/components/iconButton';
+import MovementIcon from '@mui/icons-material/FolderOpenRounded';
+import { useNavigate } from 'react-router';
 
 export const IngredientsContainer = () => {
+  const navigate = useNavigate();
   const { state, ...ingredientsAction } = useDataProvider();
   const [searchTerm, setSearchTerm] = useState<string>('');
 
@@ -32,6 +36,10 @@ export const IngredientsContainer = () => {
   const handleSearch = debounce((searchTerm: string) => {
     setSearchTerm(searchTerm);
   }, 500);
+
+  const handleMovementsOpen = (ingredientId: string) => {
+    navigate(`/ingredients/${ingredientId}/movements/`);
+  };
 
   return (
     <Ingredients
@@ -60,8 +68,25 @@ export const IngredientsContainer = () => {
           key: 'updatedAt',
           align: 'center',
         },
+        {
+          label: '',
+          key: 'actions',
+          align: 'center',
+          actions: true,
+        },
       ]}
-      rows={dataParsed.filter((recipe: IngredientModel) => recipe?.name.includes(searchTerm))}
+      rows={
+        dataParsed
+          .filter((ingredient: IngredientModel) => ingredient?.name.includes(searchTerm))
+          .map((ingredient: IngredientModel) => ({
+            ...ingredient,
+            actions: <IconButton
+                onClick={() => handleMovementsOpen(ingredient.ingredientId)}
+            >
+              <MovementIcon />
+            </IconButton>
+          }))
+      }
       onSearch={(event => handleSearch(event.currentTarget.value))}
     />
   );

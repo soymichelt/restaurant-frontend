@@ -10,6 +10,7 @@ import { Page404 } from '../pages/page404';
 import { Catalogue } from '../pages/catalogue';
 import { Ingredients } from '../pages/ingredients';
 import { Orders } from '../pages/orders';
+import { Inventory } from '../pages/inventory';
 
 
 const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: '/ingredients',
     element: <Ingredients />,
+  },
+  {
+    path: '/ingredients/:ingredientId/movements',
+    element: <Inventory />,
   },
   {
     path: '/orders',
