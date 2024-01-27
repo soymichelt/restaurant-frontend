@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from 'react';
 import { SECTIONS_LIST } from '../../../shared/constants';
 import { GlobalState } from '../../../shared/states/global';
 import { ItemType } from '../../../shared/definitions/item';
+import { OrderNotesContainer } from '../../ordersNotes/containers';
 
 export const OrdersContainer = () => {
   const { refreshingOrders, setRefreshingOrders } = useContext(GlobalState);
@@ -44,8 +45,6 @@ export const OrdersContainer = () => {
   const handlerDragEnd = (result: DropResult) => {
     if(!result.destination) return;
 
-    console.log('Drag and Drop >>>> ', result.draggableId, result.destination.droppableId);
-
     updateOrderState(result.draggableId, result.destination.droppableId)
       .catch(error => {
         console.log('Error >>>> ', error);
@@ -61,28 +60,41 @@ export const OrdersContainer = () => {
     ordersAction.success(newTaskItems);
   };
 
-  const handleEdit = (item: ItemType) => {
-    console.log('Editing >>>> ', item);
-  };
+  const [orderSelected, setOrderSelected] = useState<ItemType | null>();
+  const handleClose = () => setOrderSelected(null);
+  const handleEdit = (item: ItemType) => setOrderSelected(item);
 
   return (
-    <Orders
-      sectionList={SECTIONS_LIST}
-      items={data?.map((item: OrderModel) => ({
-        itemId: item.orderId,
-        itemState: item.state,
-        itemDescription: item.recipeDescription,
-        itemCreatorId: item.recipeId,
-        itemHeader: item.recipeName,
-        itemPriority: item.state,
-        createdAt: item.createdAt,
-        updatedAt: item.updatedAt,
-      }))}
-      loading={false}
-      onEdit={handleEdit}
-      onComplete={handleComplete}
-      onDragEnd={handlerDragEnd}
-      completeId={completeId as string}
-    />
+    <>
+      <Orders
+        sectionList={SECTIONS_LIST}
+        items={data?.map((item: OrderModel) => ({
+          itemId: item.orderId,
+          itemState: item.state,
+          itemDescription: item.recipeDescription,
+          itemCreatorId: item.recipeId,
+          itemHeader: item.recipeName,
+          itemPriority: item.state,
+          itemNotes: item.notes,
+          createdAt: item.createdAt,
+          updatedAt: item.updatedAt,
+        }))}
+        loading={false}
+        onEdit={handleEdit}
+        onComplete={handleComplete}
+        onDragEnd={handlerDragEnd}
+        completeId={completeId as string}
+      />
+
+      {orderSelected && (
+        <OrderNotesContainer
+          isOpen={true}
+          orderId={orderSelected.itemId}
+          recipeName={orderSelected.itemHeader}
+          defaultNotes={orderSelected.itemNotes}
+          onClose={handleClose}
+        />
+      )}
+    </>
   );
 };

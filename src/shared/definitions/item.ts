@@ -5,6 +5,7 @@ export type ItemType = {
   itemDescription: string;
   itemCreatorId: string;
   itemPriority?: string;
+  itemNotes?: string;
 
   createdAt: string;
   updatedAt: string;
