@@ -10,6 +10,7 @@ export type OrderModel = {
   recipeName?: string;
   recipeDescription?: string;
   recipePreparationMethod?: string;
+  notes?: string;
 
   createdAt: string;
   updatedAt: string;
@@ -101,6 +102,34 @@ export const updateOrderState = async(orderId: string, newState: string): Promis
       redirect: 'follow',
       body: JSON.stringify({
         state: newState,
+      }),
+    })
+      .then((res) => res.text())
+      .then(data => {
+        const dataParsed = JSON.parse(data);
+        if (dataParsed.errorCode) {
+          reject(new Error(dataParsed.message));
+        }
+
+        resolve(dataParsed);
+      })
+      .catch((error) => reject(error));
+  });
+
+  return fn;
+};
+
+export const updateOrderNotes = async(orderId: string, notes: string): Promise<OrderModel> => {
+  const fn = new Promise<OrderModel>((resolve, reject) => {
+    fetch(`${ORDERS_API_URL}/${orderId}/notes`, {
+      method: 'PATCH',
+      headers: {
+        'Host': API_HOST_HEADER,
+        'Authorization': getAuthHeader() as string,
+      },
+      redirect: 'follow',
+      body: JSON.stringify({
+        notes,
       }),
     })
       .then((res) => res.text())
