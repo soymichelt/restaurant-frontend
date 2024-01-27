@@ -19,3 +19,11 @@
 .icon-button:active {
   opacity: .6;
 }
+
+/* themes */
+@media (prefers-color-scheme: dark) {
+  .icon-button {
+    color: rgb(213, 217, 233);
+    background-color: rgba(0, 150, 136, 0.082);
+  }
+}
