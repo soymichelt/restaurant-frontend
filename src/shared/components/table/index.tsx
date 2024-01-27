@@ -48,13 +48,12 @@ export const Table = (props: TableProps) => {
     >
       {!hideHeader && (
         <header className={`table-container__header`}>
-          <span>
-            <Typography component='h4'>
-              {title}
-            </Typography>
-          </span>
+          <Typography component='h4'>
+            {title}
+          </Typography>
           <div>
             <TextField
+              className={'search-input'}
               rounded
               placeholder='Buscar...'
               icon={<SearchIcon />}

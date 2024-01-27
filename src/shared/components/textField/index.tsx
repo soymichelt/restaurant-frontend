@@ -2,6 +2,7 @@ import { ReactElement } from 'react';
 import './index.styles.css';
 
 export type TextFieldProps = {
+  className?: string;
   label?: string;
   placeholder?: string;
   value?: string;
@@ -17,6 +18,7 @@ export type TextFieldProps = {
 
 export const TextField = (props: TextFieldProps) => {
   const {
+    className,
     label,
     placeholder,
     value,
@@ -31,7 +33,7 @@ export const TextField = (props: TextFieldProps) => {
   } = props;
 
   return (
-    <div className={`text-field ${disabled ? 'text-field--disabled' : ''} ${error || errorMessage ? 'text-field--error' : ''} ${rounded ? 'text-field--rounded' : ''}`}>
+    <div className={`text-field ${className ? className : ''} ${disabled ? 'text-field--disabled' : ''} ${error || errorMessage ? 'text-field--error' : ''} ${rounded ? 'text-field--rounded' : ''}`}>
       {label && (
         <label>{label}</label>
       )}

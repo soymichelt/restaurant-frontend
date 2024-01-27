@@ -26,7 +26,12 @@
 }
 
 .table-container .table-container__header h4 {
+  display: none;
   margin: 0;
+}
+
+.table-container .table-container__header > div {
+  width: 100%;
 }
 
 .table-container .table-container__header .text-field {
@@ -42,7 +47,7 @@
   font-size: 15px;
   font-weight: 700;
   line-height: 1.5rem;
-  padding: 16px;
+  padding: 8px;
   border: none;
   background-color: #fff;
   border-bottom: 1px solid rgb(238, 238, 238);
@@ -58,7 +63,7 @@
   min-height: 56px;
   font-size: 15px;
   line-height: 1.5rem;
-  padding: 16px;
+  padding: 8px;
   border: none;
   border-bottom: 1px solid rgb(238, 238, 238);
   box-sizing: border-box;
@@ -104,4 +109,48 @@
   z-index: 998;
   position: static;
   background-color: rgb(248, 250, 252);
+}
+
+/* themes */
+@media (prefers-color-scheme: dark) {
+  .table-container {
+    background-color: rgb(20, 37, 47);
+  }
+
+  .table-container .table-container__header {
+    border-color: rgba(213, 217, 233, 0.082);
+  }
+
+  .table thead tr th {
+    color: #fff;
+    background-color: rgb(20, 37, 47);
+    border-color: rgba(213, 217, 233, 0.082);
+  }
+
+  .table tbody tr td {
+    color: rgb(213, 217, 233);
+    border-color: rgba(213, 217, 233, 0.082);
+  }
+
+  .table-container .collapse-section .table-container {
+    background-color: rgb(14, 27, 35);
+  }
+  .table-container .collapse-section .table-container .table thead tr th {
+    background-color: rgb(14, 27, 35);
+  }
+}
+
+/* tablet */
+@media screen and (min-width: 600px) {
+  .table-container .table-container__header h4 {
+    display: block;
+  }
+  .table-container .table-container__header > div {
+    width: unset;
+  }
+
+  .table thead tr th,
+  .table tbody tr td {
+    padding: 16px;
+  }
 }

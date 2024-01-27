@@ -3,7 +3,7 @@
   width: 100%;
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(4, minmax(270px, 1fr));
+  grid-template-columns: repeat(4, minmax(320px, 1fr));
   grid-template-rows: 100%;
   column-gap: 24px;
   overflow: hidden;
