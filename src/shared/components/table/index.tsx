@@ -99,7 +99,7 @@ export const Table = (props: TableProps) => {
                       return (
                         <td
                           key={columnIndex}
-                          className={`${column.hide ? 'hide' : ''} align--${column.align || 'left'}`}
+                          className={`${column.hide ? 'hide' : ''} align--${column.align || 'left'} ${column.actions ? 'actions' : ''}`}
                         >
                           {row[column.key]}
                         </td>
