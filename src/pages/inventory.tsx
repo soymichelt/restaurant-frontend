@@ -6,6 +6,7 @@ import { GlobalState } from '../shared/states/global';
 import { Typography } from '../shared/components/typography';
 import { IsAuthenticated } from '../elements/isAuthenticated/components';
 import { HeaderContainer } from '../elements/headers/containers';
+import { MovementsContainer } from '../elements/movements/containers';
 
 export const Inventory = () => {
   const navigate = useNavigate();
@@ -26,6 +27,7 @@ export const Inventory = () => {
             Movimientos de Inventario
           </Typography>
 
+          <MovementsContainer />
         </IsAuthenticated>
       </Page>
     </>

@@ -35,3 +35,28 @@ export const all = async (): Promise<IngredientModel[]> => {
 
   return fn;
 }
+
+export const get = async (ingredientId: string): Promise<IngredientModel> => {
+  const fn = new Promise<IngredientModel>((resolve, reject) => {
+    fetch(`${INGREDIENTS_API_URL}/${ingredientId}`, {
+      method: 'GET',
+      headers: {
+        'Host': API_HOST_HEADER,
+        'Authorization': getAuthHeader() as string,
+      },
+      redirect: 'follow',
+    })
+      .then(res => res.text())
+      .then(data => {
+        const dataParsed = JSON.parse(data);
+        if (dataParsed.errorCode) {
+          reject(new Error(dataParsed.message));
+        }
+
+        resolve(dataParsed);
+      })
+      .catch(error => reject(error));
+  });
+
+  return fn;
+}
