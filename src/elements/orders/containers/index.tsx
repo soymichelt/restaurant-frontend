@@ -89,12 +89,18 @@ export const OrdersContainer = () => {
   const handleClose = () => setOrderSelected(null);
   const handleEdit = (item: ItemType) => setOrderSelected(item);
 
+  const handleRefresh = () => {
+    ordersAction.loading();
+  };
+
   return (
     <>
       <Orders
         ranges={RANGES_ITEMS}
         rangeSelected={range}
         onChangeRange={handleChangeRange}
+
+        onRefresh={handleRefresh}
 
         sectionList={SECTIONS_LIST}
         items={data?.map((item: OrderModel) => ({
@@ -108,7 +114,7 @@ export const OrdersContainer = () => {
           createdAt: item.createdAt,
           updatedAt: item.updatedAt,
         }))}
-        loading={false}
+        isLoading={state.statusData === LOADING}
         onEdit={handleEdit}
         onComplete={handleComplete}
         onDragEnd={handlerDragEnd}

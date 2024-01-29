@@ -4,3 +4,10 @@
   justify-content: space-between;
   margin-bottom: 1.5rem;
 }
+
+.orders__filters .title {
+  flex: 1;
+}
+.orders__filters .update-button {
+  margin-right: 8px;
+}
