@@ -16,9 +16,9 @@ export type OrderModel = {
   updatedAt: string;
 };
 
-export const all = async (): Promise<OrderModel[]> => {
+export const all = async (range?: string): Promise<OrderModel[]> => {
   const fn = new Promise<OrderModel[]>((resolve, reject) => {
-    fetch(ORDERS_API_URL, {
+    fetch(`${ORDERS_API_URL}${range ? `?range=${range}` : ''}`, {
       method: 'GET',
       headers: {
         'Host': API_HOST_HEADER,
