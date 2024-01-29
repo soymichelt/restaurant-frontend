@@ -87,4 +87,8 @@
   .dropdown .dropdown__button-label {
     color: rgba(255, 255, 255, 0.87);
   }
+
+  .dropdown.active .dropdown__list li {
+    color: #172b4d;
+  }
 }
