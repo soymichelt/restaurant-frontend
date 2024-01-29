@@ -2,17 +2,17 @@
   display: inline-flex;
   flex-direction: column;
   position: relative;
+  border-radius: 1rem;
 }
 
 .dropdown .dropdown__button {
-  min-width: 150px;
+  min-width: 128px;
 
   background-color: rgba(176, 190, 197, .150);
   transition: background-color .3s ease;
   padding: 1rem .5rem 1rem 1rem;
   border-radius: 16px;
-  height: 42px;
-
+  height: 40px;
 
   box-sizing: border-box;
   display: inline-flex;
@@ -84,8 +84,19 @@
 
 /* themes */
 @media (prefers-color-scheme: dark) {
+  .dropdown .dropdown__button {
+    background-color: rgba(0, 150, 136, 0.082);
+  }
+
   .dropdown .dropdown__button-label {
-    color: rgba(255, 255, 255, 0.87);
+    color: rgb(213, 217, 233);
+  }
+
+  .dropdown:hover .dropdown__button {
+    background-color: rgb(224, 242, 241);
+  }
+  .dropdown:hover .dropdown__button-label {
+    color: rgb(0, 150, 136);
   }
 
   .dropdown.active .dropdown__list li {
