@@ -5,7 +5,6 @@ import { useContext, useEffect } from 'react';
 import { HeaderContainer } from '../elements/headers/containers';
 import { Page } from '../shared/components/page';
 import { IsAuthenticated } from '../elements/isAuthenticated/components';
-import { Typography } from '../shared/components/typography';
 import { OrdersContainer } from '../elements/orders/containers';
 
 export const Home = () => {
@@ -23,10 +22,6 @@ export const Home = () => {
       <HeaderContainer />
       <Page>
         <IsAuthenticated>
-          <Typography component='h4' className='mt-0 mb-4'>
-            Orders Board
-          </Typography>
-
           <OrdersContainer />
         </IsAuthenticated>
       </Page>

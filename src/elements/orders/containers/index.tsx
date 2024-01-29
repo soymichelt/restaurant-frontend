@@ -8,26 +8,51 @@ import { SECTIONS_LIST } from '../../../shared/constants';
 import { GlobalState } from '../../../shared/states/global';
 import { ItemType } from '../../../shared/definitions/item';
 import { OrderNotesContainer } from '../../ordersNotes/containers';
+import { NameWithIdProps } from '../../../shared/definitions/nameWithId';
+
+const RANGES_ITEMS = [
+  {
+    id: 'today',
+    name: 'Today',
+  },
+  {
+    id: 'month',
+    name: 'Month',
+  },
+  {
+    id: 'all',
+    name: 'Previous',
+  },
+];
 
 export const OrdersContainer = () => {
   const { refreshingOrders, setRefreshingOrders } = useContext(GlobalState);
   const { state, ...ordersAction } = useDataProvider();
 
-  const getOrders = () => {
-    all()
+  const [range, setRange] = useState<NameWithIdProps>(RANGES_ITEMS[0]);
+  const handleChangeRange = (newRange: NameWithIdProps) => {
+    setRange(newRange);
+
+    if (newRange) {
+      getOrders(newRange.id);
+    }
+  };
+
+  const getOrders = (rangeId?: string) => {
+    all(rangeId)
       .then(orders => ordersAction.success(orders))
       .catch(error => ordersAction.catch(error));
   };
 
   useEffect(() => {
     if (state.statusData === LOADING) {
-      getOrders();
+      getOrders(range?.id);
     }
   }, [state.isRefresh]);
 
   useEffect(() => {
     if (refreshingOrders) {
-      getOrders();
+      getOrders(range?.id);
       setRefreshingOrders(false);
     }
   }, [refreshingOrders]);
@@ -67,6 +92,10 @@ export const OrdersContainer = () => {
   return (
     <>
       <Orders
+        ranges={RANGES_ITEMS}
+        rangeSelected={range}
+        onChangeRange={handleChangeRange}
+
         sectionList={SECTIONS_LIST}
         items={data?.map((item: OrderModel) => ({
           itemId: item.orderId,
