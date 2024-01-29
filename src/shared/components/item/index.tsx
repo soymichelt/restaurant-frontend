@@ -77,23 +77,21 @@ export const Item = (props: ItemProps) => {
 
       <div className='item-element__actions'>
         <div className='item-element__actions__buttons'>
-          {data.itemState !== 'todo' && (
-            <>
-              <button
-                className='btn'
-                onClick={() => onComplete(data.itemId)}
-                disabled={(completing || data.itemState === 'delivered')}
-              >
-                <CompleteIcon />
-              </button>
-              <Button
-                variant='outline'
-                onClick={() => onEdit(data)}
-              >
-                Add Notes
-              </Button>
-            </>
-          )}
+          <>
+            <button
+              className='btn'
+              onClick={() => onComplete(data.itemId)}
+              disabled={(completing || data.itemState === 'delivered')}
+            >
+              <CompleteIcon />
+            </button>
+            <Button
+              variant='outline'
+              onClick={() => onEdit(data)}
+            >
+              Add Notes
+            </Button>
+          </>
         </div>
         <div className='item-element__actions__price'>
           <Typography className='mb-0' bold component='h4'>
