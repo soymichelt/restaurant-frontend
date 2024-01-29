@@ -11,6 +11,7 @@ export type DropdownProps = {
   items?: NameWithIdProps[];
   itemSelected?: NameWithIdProps;
   onSelect?: (itemSelected: NameWithIdProps) => void;
+  disabled?: boolean;
 };
 
 export const Dropdown = (props: DropdownProps) => {
@@ -21,13 +22,16 @@ export const Dropdown = (props: DropdownProps) => {
     items,
     itemSelected,
     onSelect,
+    disabled = false,
   } = props;
 
   const [active, setActive] = useState(false);
   const [item, setItem] = useState<NameWithIdProps | undefined>(itemSelected);
 
   return (
-    <div className={`dropdown ${className || ''} ${active ? 'active' : ''}`}>
+    <div
+      className={`dropdown ${className || ''} ${active ? 'active' : ''} ${disabled ? 'dropdown--disabled' : ''}`}
+    >
       <div
         className={`dropdown__button`}
         onClick={() => setActive(!active)}

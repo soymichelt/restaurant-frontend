@@ -65,6 +65,7 @@ export const Orders = (props: OrdersProps) => {
           items={ranges}
           itemSelected={rangeSelected}
           onSelect={onChangeRange}
+          disabled={isLoading}
         />
       </div>
 
