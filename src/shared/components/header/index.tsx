@@ -2,6 +2,12 @@ import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/MenuRounded';
 import './index.styles.css';
 import { Logo } from '../logo';
+import HomeIcon from '@mui/icons-material/HomeRounded';
+import MenuBookIcon from '@mui/icons-material/MenuBookRounded';
+import IngredientIcon from '@mui/icons-material/LocalGroceryStoreRounded';
+import OrderIcon from '@mui/icons-material/StorefrontRounded';
+import ProfileIcon from '@mui/icons-material/AccountCircleRounded';
+import LogoutIcon from '@mui/icons-material/LogoutRounded';
 
 type HeaderProps = {
   isLogged?: boolean;
@@ -82,29 +88,29 @@ export const Header = (props: HeaderProps) => {
       <aside className={`sidebar ${sidebarIsOpen ? 'is-open' : ''}`}>
         <header>
           <Link to='/'>
-            <Logo size='sm' />
+            <Logo size='lg' />
           </Link>
         </header>
         <nav className='nav-menu'>
           <ul>
             <li>
               <Link to='/'>
-                Inicio
+                <HomeIcon /> Inicio
               </Link>
             </li>
             <li>
               <Link to='/catalogue'>
-                Catálogo
+                <MenuBookIcon /> Catálogo
               </Link>
             </li>
             <li>
               <Link to='/ingredients'>
-                Ingredientes
+                <IngredientIcon /> Ingredientes
               </Link>
             </li>
             <li>
               <Link to='/orders'>
-                Órdenes
+                <OrderIcon /> Órdenes
               </Link>
             </li>
           </ul>
@@ -113,12 +119,12 @@ export const Header = (props: HeaderProps) => {
           <ul>
             <li>
               <Link to='/profile'>
-                My Profile
+                <ProfileIcon /> My Profile
               </Link>
             </li>
             <li>
               <button onClick={onSignout}>
-                Cerrar Sesión
+                <LogoutIcon /> Cerrar Sesión
               </button>
             </li>
           </ul>
