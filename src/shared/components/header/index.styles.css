@@ -12,7 +12,7 @@
 }
 
 .header h2 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin: 0;
 }
 .header h2 a {
@@ -114,6 +114,16 @@
   justify-content: center;
   align-items: center;
 }
+
+.sidebar nav.nav-account {
+  border-top: 1px solid rgba(0, 150, 136, 0.082);
+  padding-block: 1rem;
+}
+
+.sidebar nav.nav-menu {
+  flex: 1;
+}
+
 .sidebar nav ul {
   display: flex;
   flex-direction: column;
@@ -128,7 +138,8 @@
 }
 .sidebar nav ul li a,
 .sidebar nav ul li button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   background-color: transparent;
   width: 100%;
   padding: 10px 16px;
@@ -148,12 +159,14 @@
   background-color: rgba(23, 43, 77, .1);
 }
 
+.sidebar nav ul li a svg,
+.sidebar nav ul li button svg {
+  margin-right: 8px;
+}
+
 
 /* mobile */
 @media screen and (max-width: 530px) {
-  .header h2 {
-    font-size: 1rem;
-  }
   .header nav .menu-item.menu-item--large {
     display: none;
   }
