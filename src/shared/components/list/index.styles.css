@@ -65,6 +65,14 @@
   outline-width: 0;
 }
 
+.list__items-container .list__empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: .1;
+}
+
 @media (prefers-color-scheme: dark) {
   .list__section {
     background-color: rgb(6, 13, 18);
