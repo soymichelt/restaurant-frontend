@@ -49,6 +49,7 @@ export const Sections = (props: SectionsProps) => {
                       completeId={completeId}
                       provided={provided}
                       isDragDisable={section.disableToDeliver}
+                      emptyBackground={<img src={section.emptyBackgroundPath} />}
                   />
               )}
             </Droppable>

@@ -1,7 +1,8 @@
 import { Draggable, DroppableProvided } from 'react-beautiful-dnd';
-import './index.styles.css';
 import { ItemType } from '../../definitions/item';
 import { Item } from '../item/index';
+import { ReactElement } from 'react';
+import './index.styles.css';
 
 type ListProps = {
   items: ItemType[];
@@ -12,6 +13,7 @@ type ListProps = {
   provided: DroppableProvided;
   sectionName: string;
   isDragDisable?: boolean;
+  emptyBackground?: ReactElement;
 };
 
 export const List = (props: ListProps) => {
@@ -24,6 +26,7 @@ export const List = (props: ListProps) => {
     provided,
     sectionName,
     isDragDisable = false,
+    emptyBackground,
   } = props;
 
   return (
@@ -40,7 +43,7 @@ export const List = (props: ListProps) => {
           </span>
         </header>
         <div className={'list__items-container'}>
-          {(items && items.length > 0) && items.map((item, index) => {
+          {(items && items.length > 0) ? items.map((item, index) => {
             return (
               <Draggable
                 key={item.itemId}
@@ -60,7 +63,11 @@ export const List = (props: ListProps) => {
                 )}
               </Draggable>
             );
-          })}
+          }) : (
+            <div className={'list__empty'}>
+              {emptyBackground}
+            </div>
+          )}
         </div>
 
         {provided.placeholder}

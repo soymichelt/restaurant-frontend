@@ -3,4 +3,5 @@ export type SectionType = {
   name: string;
   disableToReceive: boolean;
   disableToDeliver: boolean;
+  emptyBackgroundPath: string,
 };
